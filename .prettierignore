@@ -1,0 +1,6 @@
+node_modules/
+dist/
+dist-tests/
+package-lock.json
+src/agreement/template.generated.ts
+.rehearsal/

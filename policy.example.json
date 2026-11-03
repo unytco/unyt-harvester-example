@@ -1,0 +1,8 @@
+{
+  "version": "tokens-1",
+  "ctRoleId": "invoicer",
+  "rules": [
+    { "metricKey": "inputTokens", "unitSymbol": "TOKIN", "scale": 1 },
+    { "metricKey": "outputTokens", "unitSymbol": "TOKOUT", "scale": 1 }
+  ]
+}

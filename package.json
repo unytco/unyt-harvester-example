@@ -1,0 +1,40 @@
+{
+  "name": "unyt-harvester-example",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Sample Unyt log harvester: turns measurements from a trusted source into smart-agreement payments in HoloFuel.",
+  "license": "CAL-1.0",
+  "type": "module",
+  "engines": {
+    "node": ">=22.5"
+  },
+  "scripts": {
+    "build": "tsc",
+    "prebuild": "rm -rf dist && node scripts/embed-template.mjs",
+    "fmt": "prettier --write .",
+    "fmt:check": "prettier --check .",
+    "test": "node scripts/embed-template.mjs && prettier --check . && tsc && tsc -p tsconfig.tests.json && node --test 'dist-tests/tests/**/*.test.js'",
+    "process": "npm run build 1>&2 && node --env-file-if-exists=.env dist/server/process.js",
+    "generate-tokens": "npm run build 1>&2 && node dist/server/generate-tokens.js",
+    "hc:init": "npm run build 1>&2 && node --env-file-if-exists=.env dist/server/hc-init.js",
+    "invoice": "npm run build 1>&2 && node --env-file-if-exists=.env dist/server/invoice.js",
+    "fund": "npm run build 1>&2 && node --env-file-if-exists=.env dist/server/fund.js",
+    "unlock": "npm run build 1>&2 && node --env-file-if-exists=.env dist/server/unlock.js",
+    "ops": "npm run build 1>&2 && node --env-file-if-exists=.env dist/server/ops.js",
+    "watch": "npm run build 1>&2 && node --env-file-if-exists=.env dist/sources/nomad/watch.js",
+    "pull:allocs": "npm run build 1>&2 && node --env-file-if-exists=.env dist/sources/nomad/pull-allocations.js",
+    "provision": "npm run build 1>&2 && node --env-file-if-exists=.env dist/server/provision.js",
+    "rehearse:check": "npm run build 1>&2 && bash rehearsal/fetch.sh && node dist/rehearsal/network.js --check",
+    "rehearse": "npm run build 1>&2 && bash rehearsal/fetch.sh && node dist/rehearsal/rehearse.js"
+  },
+  "dependencies": {
+    "@holochain/client": "^0.22.0",
+    "@msgpack/msgpack": "^3.1.3",
+    "undici": "^7.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.5.2",
+    "prettier": "^3.6.2",
+    "typescript": "^5.9.2"
+  }
+}

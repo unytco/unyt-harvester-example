@@ -1,0 +1,76 @@
+{
+  "type": "object",
+  "properties": {
+    "consumed_inputs": {
+      "type": "object",
+      "properties": {
+        "invoicer_allocations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "amount": {
+                "type": "object",
+                "additionalProperties": { "type": "string" }
+              },
+              "source": { "type": "string" }
+            },
+            "required": ["amount", "source"]
+          }
+        },
+        "funder_allocations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "amount": {
+                "type": "object",
+                "additionalProperties": { "type": "string" }
+              },
+              "source": { "type": "string" }
+            },
+            "required": ["amount", "source"]
+          }
+        },
+        "invoice_payloads": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "host_pub_key": { "type": "string" },
+                "units": {
+                  "type": "object",
+                  "additionalProperties": { "type": "string" }
+                }
+              },
+              "required": ["host_pub_key", "units"]
+            }
+          }
+        }
+      },
+      "required": [
+        "invoicer_allocations",
+        "funder_allocations",
+        "invoice_payloads"
+      ]
+    },
+    "inputs": {
+      "type": "object",
+      "properties": {
+        "price_sheet_data_blob_hash": { "type": "string" },
+        "hf_index": { "type": "string" },
+        "harvester_pub_key": { "type": "string" },
+        "previous_execution": { "type": ["object", "null"] },
+        "unlock": { "type": "boolean" }
+      },
+      "required": [
+        "price_sheet_data_blob_hash",
+        "hf_index",
+        "harvester_pub_key"
+      ]
+    }
+  },
+  "required": ["consumed_inputs", "inputs"]
+}

@@ -1,0 +1,20 @@
+node_modules/
+dist/
+dist-tests/
+.env
+*.tsbuildinfo
+
+# SQLite store
+*.db
+*.db-wal
+*.db-shm
+
+# Holochain signing creds + app token (written by hc:init)
+*-hc-creds.json
+
+# synthetic token logs
+*.jsonl
+
+# generated from src/agreement/template/ by scripts/embed-template.mjs
+src/agreement/template.generated.ts
+.rehearsal/

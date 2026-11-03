@@ -1,0 +1,25 @@
+{
+  "basic_properties": {
+    "name": "LLMTokens",
+    "abbreviation": "LLMT",
+    "description": "Pays operators who serve LLM requests, per input and output token.",
+    "url": "https://github.com/unytco/unyt-harvester-example",
+    "theme": "#5b4fcf"
+  },
+  "unit_definitions": [
+    {
+      "unit_type": { "MeasurementUnit": { "precision": 6 } },
+      "unit_symbol": "TOKIN",
+      "unit_name": "Input tokens",
+      "unit_description": "prompt tokens served",
+      "unit_color": "#5b4fcf"
+    },
+    {
+      "unit_type": { "MeasurementUnit": { "precision": 6 } },
+      "unit_symbol": "TOKOUT",
+      "unit_name": "Output tokens",
+      "unit_description": "completion tokens served",
+      "unit_color": "#8f84f0"
+    }
+  ]
+}
